@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>OAuth Redirect</title>
+  <script type="text/javascript">
+    window.onload = function() {
+      // Get the hash fragment (without the '#' character)
+      const hash = window.location.hash.substring(1);
+      // Parse it into parameters
+      const params = new URLSearchParams(hash);
+      const access_token = params.get('access_token');
+      const expires_in = params.get('expires_in');
+      // Construct a new URL with query parameters
+      const redirectUrl = "https://your-streamlit-app.streamlit.app/?access_token=" + access_token + "&expires_in=" + expires_in;
+      window.location.replace(redirectUrl);
+    }
+  </script>
+</head>
+<body>
+  Redirecting...
+</body>
+</html>
